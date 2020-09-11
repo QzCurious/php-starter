@@ -39,6 +39,8 @@ recreating mysql container leaves lots of unused volumes.
 Use [_.dockerignore_](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#exclude-with-dockerignore)
 to prevent irrelevant files be copied to docker image while building.
 
+To run command on container by user: `docker exec -u root <container> <cmd>`
+
 #### Dockerfile
 
 Each command in _Dockerfile_ can be cached sequentially. To benefit from
@@ -49,4 +51,12 @@ the cache mechanism, put commands foremost that:
 
 ## Question
 
+<<<<<<< Updated upstream
 - [nginx] Don't know why append `$query_string` to index.php
+=======
+-   [nginx] Don't know why append `$query_string` to index.php
+
+## Reference
+
+-   [Set current host user for docker container](https://medium.com/faun/set-current-host-user-for-docker-container-4e521cef9ffc)
+>>>>>>> Stashed changes
