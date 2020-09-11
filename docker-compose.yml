@@ -1,0 +1,47 @@
+version: "3"
+services:
+    php:
+        build:
+            context: ./php
+            dockerfile: Dockerfile
+        container_name: ${APP_NAME}-php
+        volumes:
+            - ${APP_PATH}/:/var/www/html
+            - ./php/conf.d/:/usr/local/etc/php:ro
+        depends_on:
+            - mysql
+
+    nginx:
+        image: nginx:1.18-alpine
+        container_name: ${APP_NAME}-nginx
+        ports:
+            - "80:80"
+            #- "443:443"
+        volumes:
+            - ${APP_PATH}/:/var/www/html:ro
+            - ./nginx/conf.d:/etc/nginx/conf.d:ro
+        depends_on:
+            - php
+
+    mysql:
+        image: mysql:8.0
+        container_name: ${APP_NAME}-mysql
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+        volumes:
+          - ./data/mysql:/var/lib/mysql
+
+
+    phpmyadmin:
+        image: phpmyadmin
+        container_name: ${APP_NAME}-phpmyadmin
+        environment:
+            PMA_HOST: mysql
+            PMA_USER: root
+            PMA_PASSWORD: root
+        ports:
+            - 8080:80
+        depends_on:
+          - mysql
