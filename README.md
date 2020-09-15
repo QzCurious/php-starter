@@ -51,12 +51,8 @@ the cache mechanism, put commands foremost that:
 
 ## Question
 
-<<<<<<< Updated upstream
-- [nginx] Don't know why append `$query_string` to index.php
-=======
 -   [nginx] Don't know why append `$query_string` to index.php
 
 ## Reference
 
 -   [Set current host user for docker container](https://medium.com/faun/set-current-host-user-for-docker-container-4e521cef9ffc)
->>>>>>> Stashed changes
