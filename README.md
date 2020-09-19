@@ -1,3 +1,11 @@
+## How to Use
+
+1.  git clone/copy to project directory
+2.  `cp env.example .env`
+3.  optionally fill in UID and GID for user of mysql container, so the bind volume will not be owned by root
+4.  optionally exclude lnmp-starter _.gitignore_ in your git project
+5.  `docker-compose up -d`
+
 ## Note
 
 ## nginx
