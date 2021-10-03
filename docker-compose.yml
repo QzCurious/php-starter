@@ -32,6 +32,9 @@ services:
             MYSQL_ROOT_PASSWORD: root
         volumes:
           - ./data/mysql:/var/lib/mysql
+          - type: bind
+            source: ./mysql/my.cnf
+            target: /etc/mysql/conf.d/my.cnf
         user: ${UID:-0}:${GID:-0}
 
 
